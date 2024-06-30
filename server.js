@@ -1,5 +1,3 @@
-// server.js
-
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
@@ -8,6 +6,12 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
+
+// Set the Permissions-Policy header
+app.use((req, res, next) => {
+  res.header('Permissions-Policy', 'attribution-reporting=(*);');
+  next();
+});
 
 // API-endpoint för att hämta blogginlägg
 app.get('/api/blogPosts', (req, res) => {
@@ -19,8 +23,8 @@ app.get('/api/blogPosts', (req, res) => {
     }
 
     const posts = files
-      .filter(file => file.endsWith('.md'))
-      .map(file => ({
+     .filter(file => file.endsWith('.md'))
+     .map(file => ({
         file,
         path: `/blog/${file}`
       }));
