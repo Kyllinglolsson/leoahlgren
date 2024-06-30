@@ -1,0 +1,200 @@
+/* portfolio.css */
+
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.grid {
+  margin-top: 5%;
+  display: flex;
+  padding: 2%;
+}
+
+.grid-col {
+  flex-grow: 1;
+}
+
+.portfolioFooterWrapper0 {
+  position: relative;
+  margin-top: 100px;
+  height: 60vw;
+  width: 100%;
+}
+
+  .portfolioFooterBox0 {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color: #000000;
+
+  }
+
+  .portfolioFooterTextBox0 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    margin: 5%;
+  }
+
+  .portfolioFfooterStaticText {
+    width: 100%;
+  }
+
+  .portfolioFooterTxt_0 {
+    margin: 0;
+    margin-top: 10%;
+    font-size: calc(2vw + 1vh);
+    font-weight: 900;
+    animation: rainbow 5s linear infinite;
+  }
+
+  .portfolioFooterTxt_1 {
+    font-size: calc(8vw + 1vh);
+    line-height: 1;
+    margin: 5%;
+    margin-bottom: 5%;
+    animation: rainbow 5s linear infinite;
+    transition: color 0.5s ease;
+    font-weight: 900;
+  }
+
+  .portfolioFooterTxt_2 {
+    font-size: calc(1vw + 1vh);
+    font-weight: 900;
+    animation: rainbow 5s linear infinite;
+
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Hela höjden på viewporten */
+}
+
+.loading-text {
+  font-size: 24px;
+  color: #000000; /* Valfri färg */
+}
+
+/* 2 columns by default, hide columns 2 & 3 */
+.grid-col:nth-child(n+2) { display: none }
+
+@media (min-width: 768px) {
+  .grid-col:nth-child(3) { display: block }
+}
+
+@media (min-width: 1200px) {
+  .grid-col:nth-child(4) { display: block }
+}
+
+.grid-item {
+  color: white;
+  padding: 2%;
+  text-align: center;
+  font-family: system-ui;
+  font-weight: 900;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.grid-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease;
+}
+
+.lightbox.hidden {
+  display: none;
+}
+
+body.lightbox-open {
+  overflow: hidden;
+}
+
+.blurred {
+  filter: blur(10px);
+  transition: filter 0.5s ease;
+}
+
+@media (max-width: 750px) {
+  .body {
+    flex-direction: column;
+    max-width: 100%;
+  }
+  
+  .grid {
+    margin-top: 30%;
+  }
+
+  .portfolioFooterWrapper0 {
+    margin: 0;
+    height: 80vw;
+  }
+
+  .portfolioFooterBox0 {
+    color: black;
+    justify-items: center;
+  }
+
+  .portfolioFooterTextBox0 {
+    z-index: 2;
+    color: black;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .portfolioFooterStaticText {
+    margin-top: -13px;
+    font-size: calc(6vw + 1vh);
+  }
+
+  .portfolioFooterTxt_1 {
+    font-size: calc(5vw + 1vh);
+    margin: 5%;
+    margin-top: 0%;
+    margin-bottom: 20%;
+    transition: color 0.5s ease;
+  }
+
+}
+
+@keyframes rainbow {
+  0%, 100% { color: red; }
+  14.285% { color: orange; }
+  28.570% { color: yellow; }
+  42.855% { color: green; }
+  57.140% { color: blue; }
+  71.425% { color: indigo; }
+  85.710% { color: violet; }
+}

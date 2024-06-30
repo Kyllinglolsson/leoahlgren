@@ -1,0 +1,27 @@
+/* index.css */
+
+.App{
+  max-width: 100%;
+}
+
+/* Uppdaterade stilar för HTML-elementet */
+html, canvas {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5; /* öka eller minska radavståndet på text */
+}
+
+/* Stil för länkar */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Stil för besökta länkar */
+a:visited {
+  color: inherit;
+}
+

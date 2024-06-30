@@ -1,0 +1,99 @@
+/* navbar.css */
+
+.navbar {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  color: rgb(0, 0, 0);
+  backdrop-filter: blur(10px); 
+  border-radius: 15px;
+  margin: 20px;
+  max-height: fit-content;
+  z-index: 1000;
+  padding-right: 20px;
+
+}
+
+.logoContainer {
+  max-width: fit-content; 
+  align-items: center;
+  padding-left: 20px;
+
+}
+
+  .logo {
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+.menu {
+  display: flex;
+  width: flex;
+}
+
+.linkContainer {
+  display: flex;
+  align-items: center;
+  max-width: fit-content; 
+}
+
+  .link {
+    padding: 10px;
+    text-decoration: none;
+    mix-blend-mode: difference
+  }
+
+.iconsContainer{
+  max-width: fit-content; 
+  padding-left: 20px;
+  padding-right: 20px;
+  max-height: 44px;
+}
+
+  .social-icon {
+    font-size: 24px;
+    padding: 10px; /* Lägger till lite mellanrum mellan ikonerna */
+  }
+
+  @media (max-width: 750px) {
+
+    .navbar {
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 85%;
+      border-radius: 15px;
+      margin: 10px;
+      max-height: fit-content;
+      z-index: 1000;
+      padding-right: 0px;
+    }
+  
+    .logoContainer {
+      flex: 1 1 100%;
+      text-align: left;
+      padding-left: 2%;
+    }
+  
+    .iconsContainer {
+      align-items: center;
+      flex: 1 1 100%;
+      padding-left: 2%;
+      max-height: 44px;
+    }
+  
+    .linkContainer {
+      display: flex;
+      align-items: center;
+      max-width: fit-content; 
+    }
+  
+    .link {
+      width: auto;
+      text-align: left;
+      padding: 5px 10px;
+    }
+  
+    .social-icon {
+      font-size: 24px;
+    }
+  }

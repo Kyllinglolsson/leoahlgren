@@ -1,0 +1,242 @@
+/* main.css */ 
+
+/* Generella regler */
+.main {
+  flex-direction: column;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Generella regler - Body */
+[class^="bodyWrapper"] {
+  padding: 1%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 100%;
+}
+
+.bodyWrapper0 {
+  margin-top: 5%;
+}
+
+[class^="bodyImageBox"] {
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+}
+
+  [class^="bodyImageBox"] img {
+    max-width: 100%;
+    max-height: 90vh;
+    flex: 1;
+  }
+
+[class^="bodyTextBox"] {
+  min-width: 20%;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+  flex: 1;
+  z-index: 3;
+  padding-top: 10%;
+  
+}
+
+.footerWrapper0 {
+  position: relative;
+  margin-top: 100px;
+  height: 100%;
+}
+
+.footerImageBox0 {
+  position: relative;
+  height: 100%;
+  filter: blur(15px);
+}
+
+.footerImageBox0 img {
+  width: 100%;
+  height: auto;
+  z-index: 0;
+}
+
+.footerTextBox0 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  max-height: 100%;
+  font-size: calc(7vw + 1vh);
+  font-weight: 900;
+  z-index: 2;
+  color: black;
+  padding: 2%;
+  overflow: hidden;
+  margin-top: -120px;
+  display: flex;
+  align-items: center;
+}
+
+.footerStaticText {
+  width: 100%;
+}
+
+.mainFooterTxt_0 {
+  margin: 0;
+  margin-top: 30%;
+}
+
+.mainFooterTxt_1 {
+  font-size: calc(20vw + 1vh);
+  line-height: 1;
+  margin: 5%;
+  margin-bottom: 60%;
+  animation: rainbow 5s linear infinite;
+  transition: color 0.5s ease;
+  z-index: 2;
+}
+
+/* Generella regler för text */
+[class^="rotatingText"] {
+  max-height: fit-content;
+  font-size: 40px;
+  font-weight: 700;
+  position: relative;
+  animation: rotateBody 5s infinite;
+  animation: rollingTextIndex 5s ease infinite;
+}
+
+[class^="staticText"] {
+  font-size: 20px;
+  font-weight: normal;
+  position: relative;
+}
+
+/* Specifika regler - Text vänster, bild höger */
+.bodyWrapper0 {
+  flex-direction: row;
+}
+
+.bodyImageBox0 {
+  order: 2;
+}
+
+.bodyTextBox0 {
+  order: 1;
+}
+
+/* Bild vänster, text höger */
+.bodyWrapper2 {
+  flex-direction: row-reverse;
+}
+
+.bodyImageBox2 {
+  order: 0;
+}
+
+.bodyTextBox2 {
+  order: 1;
+}
+
+/* Media queries */
+@media (max-width: 750px) {
+  [class^="bodyWrapper"] {
+    flex-direction: column;
+  }
+
+  .bodyWrapper0 {
+    margin-top: 30%;
+  }
+
+  [class^="bodyTextBox"] {
+    max-width: 100%;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+  }
+
+  [class^="rotatingText"] {
+    font-size: 20px;
+    width: 90%;
+    max-width: 100%;
+  }
+
+  [class^="staticText"] {
+    font-size: 14px;
+    width: 90%;
+    max-width: 100%;
+  }
+
+  .bodyTextBox0 {
+    order: 2;
+  }
+
+  .footerWrapper0 {
+    margin: 0;
+  }
+
+  .footerImageBox0 {
+    filter: blur(5px);
+  }
+
+  .footerTextBox0 {
+    z-index: 2;
+    color: black;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .footerStaticText {
+    margin-top: -13px;
+    font-size: calc(6vw + 1vh);
+  }
+
+  .mainFooterTxt_1 {
+    font-size: calc(20vw + 1vh);
+    margin: 5%;
+    margin-top: 0%;
+    margin-bottom: 20%;
+    transition: color 0.5s ease;
+  }
+}
+
+@keyframes rollingTextIndex {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes rainbow {
+  0%, 100% { color: red; }
+  14.285% { color: orange; }
+  28.570% { color: yellow; }
+  42.855% { color: green; }
+  57.140% { color: blue; }
+  71.425% { color: indigo; }
+  85.710% { color: violet; }
+}
+
+
+/*
+
+font-weight: 100, 200, 300, 400 (vanlig)
+500, 600, 700 (fet)
+800, 900 (extra fet).
+
+*/ 

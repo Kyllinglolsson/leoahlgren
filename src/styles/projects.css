@@ -1,0 +1,242 @@
+/* projects.css */ 
+
+/* Generella regler */
+.projects {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Body */
+
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Generella regler - Body */
+[class^="projectsBodyWrapper"] {
+  padding: 1%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 100%;
+}
+
+.projectsodyWrapper0 {
+  margin-top: 10%;
+}
+
+/* Body img box */
+
+[class^="projectsBodyImageBox"] {
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+  [class^="projectsBodyImageBox"] img {
+    max-width: 100%;
+    max-height: auto;
+    flex: 1;
+  }
+
+[class^="projectsBodyTextBox"] {
+  min-width: 20%;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+  flex: 1;
+  z-index: 3;
+}
+
+.projectsBodyTextBox0{
+  margin-left: 5%;
+}
+
+/* Text box */
+
+/* Specifika regler - Text vänster, bild höger */
+.projectsodyWrapper0 {
+  flex-direction: row;
+}
+
+.projectsBodyImageBox0 {
+  order: 2;
+}
+
+.projectsBodyTextBox0 {
+  order: 1;
+}
+
+/* Bild vänster, text höger */
+.projectsodyWrapper2 {
+  flex-direction: row-reverse;
+}
+
+.projectsBodyImageBox2 {
+  order: 0;
+}
+
+.projectsBodyTextBox2 {
+  order: 1;
+}
+
+/* Footer */ 
+
+.projectsFooterWrapper0 {
+  position: relative;
+  margin-top: 100px;
+  height: 60vw;
+  width: 100%;
+}
+
+  .projectsFooterBox0 {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color: #000000;
+  }
+
+  .projectsFooterTextBox0 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    margin: 5%;
+  }
+
+  .projectsFooterStaticText {
+    width: 100%;
+  }
+
+  .projectsFooterTxt_0 {
+    margin: 0;
+    margin-top: 10%;
+    font-size: calc(2vw + 1vh);
+    font-weight: 900;
+    animation: rainbow 5s linear infinite;
+  }
+
+  .projectsFooterTxt_1 {
+    font-size: calc(8vw + 1vh);
+    line-height: 1;
+    margin: 5%;
+    margin-bottom: 5%;
+    animation: rainbow 5s linear infinite;
+    transition: color 0.5s ease;
+    font-weight: 900;
+  }
+
+  .projectsFooterTxt_2 {
+    font-size: calc(1vw + 1vh);
+    font-weight: 900;
+    animation: rainbow 5s linear infinite;
+  }
+
+/* Generella regler för text */
+
+[class^="staticText"] {
+  font-size: 20px;
+  font-weight: normal;
+  position: relative;
+}
+
+/* Media queries */
+@media (max-width: 750px) {
+  [class^="projectsodyWrapper"] {
+    flex-direction: column;
+  }
+
+  .projectsodyWrapper0 {
+    margin-top: 30%;
+  }
+
+  [class^="projectsBodyTextBox"] {
+    max-width: 100%;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+  }
+
+  [class^="staticText"] {
+    font-size: 14px;
+    width: 90%;
+    max-width: 100%;
+  }
+
+  .projectsBodyTextBox0 {
+    order: 2;
+  }
+
+  .projectsFooterWrapper0 {
+    margin: 0;
+    height: 80vw;
+  }
+
+  .projectsFooterBox0 {
+    color: black;
+    justify-items: center;
+  }
+
+  .projectsFooterTextBox0 {
+    z-index: 2;
+    color: black;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .projectsFooterStaticText {
+    margin-top: -13px;
+    font-size: calc(6vw + 1vh);
+  }
+
+  .projectsFooterTxt_1 {
+    font-size: calc(20vw + 1vh);
+    margin: 5%;
+    margin-top: 0%;
+    margin-bottom: 20%;
+    transition: color 0.5s ease;
+  }
+}
+
+@keyframes rollingTextIndex {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes rainbow {
+  0%, 100% { color: red; }
+  14.285% { color: orange; }
+  28.570% { color: yellow; }
+  42.855% { color: green; }
+  57.140% { color: blue; }
+  71.425% { color: indigo; }
+  85.710% { color: violet; }
+}
+
+
+/*
+
+font-weight: 100, 200, 300, 400 (vanlig)
+500, 600, 700 (fet)
+800, 900 (extra fet).
+
+*/ 
