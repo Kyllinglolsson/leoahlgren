@@ -10,7 +10,7 @@ const useImages = (folder) => {
             for (let i = 1; i <= 999; i++) {
                 const paddedIndex = String(i).padStart(3, '0');
                 try {
-                    const image = await import(`../assets/${folder}/LeoAhlgren_${paddedIndex}.jpg`);
+                    const image = await import(`../../public/assets/${folder}/LeoAhlgren_${paddedIndex}.jpg`);
                     importedImages.push(image.default);
                 } catch (error) {
                     break;
@@ -40,7 +40,7 @@ const useGridImages = (folder) => {
                 i++;
                 const paddedIndex = String(i).padStart(3, '0');
                 try {
-                    const image = await import(`../assets/${folder}/LeoAhlgren_${paddedIndex}.jpg`);
+                    const image = await import(`../../public/assets/${folder}/LeoAhlgren_${paddedIndex}.jpg`);
                     importedImages.push({ index: i, src: image.default });
                 } catch (error) {
                     break;

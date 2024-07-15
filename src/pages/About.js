@@ -8,7 +8,7 @@ const About = () => {
   const aboutImages = useImages('about');
 
   if (aboutImages.length === 0) {
-    return <div>Loading...</div>; // Eller någon annan loading indikator
+    return <div className="loading-container">Loading...</div>; // Eller någon annan loading indikator
   }
 
   return (

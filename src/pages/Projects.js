@@ -8,7 +8,7 @@ const Projects = () => {
   const projectImages = useImages('projects');
 
   if (projectImages.length === 0) {
-    return <div>Loading...</div>; // Eller någon annan loading indikator
+    return <div className="loading-container">Loading...</div>; // Eller någon annan loading indikator
   }
 
   return (

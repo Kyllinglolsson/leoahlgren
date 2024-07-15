@@ -78,9 +78,6 @@
   justify-content: center;
   align-items: center;
   height: 100vh; /* Hela höjden på viewporten */
-}
-
-.loading-text {
   font-size: 24px;
   color: #000000; /* Valfri färg */
 }

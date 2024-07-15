@@ -10,6 +10,15 @@
     width: 100%;
   }
 
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Hela höjden på viewporten */
+    font-size: 24px;
+    color: #000000; /* Valfri färg */
+  }
+
   .contentWrapper {
     display: flex;
     flex-direction: column;

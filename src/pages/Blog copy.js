@@ -51,9 +51,10 @@ const Blog = () => {
 
   return (
     <div className="blog">
+
       <div className="body">
         <div className="Wrapper">
-          
+
           <div className="navColumn">
             <h2 className="tagsHeader">Taggar</h2>
             <ul>
@@ -77,7 +78,7 @@ const Blog = () => {
                   >
                     <div className="dateItem">
                       <div className="date">
-                        {post.date.toLocaleDateString('sv-SE', {
+                        {post.date.toLocaleDateString('en-US', {
                           year: 'numeric',
                           month: 'short',
                           day: 'numeric',

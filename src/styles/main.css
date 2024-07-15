@@ -5,9 +5,19 @@
   flex-direction: column;
 }
 
+
 .body {
   display: flex;
   flex-direction: column;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Hela höjden på viewporten */
+  font-size: 24px;
+  color: #000000; /* Valfri färg */
 }
 
 /* Generella regler - Body */

@@ -34,9 +34,7 @@ const Photography = () => {
     return (
       <div className="portfolio">
         <div className="body">
-          <div className="loading-container">
-            <div className="loading-text">Loading...</div>
-          </div>
+            <div className="loading-container">Loading...</div>
         </div>
       </div>
     );

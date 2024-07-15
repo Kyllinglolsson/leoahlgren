@@ -50,6 +50,7 @@ const md = new MarkdownIt({
 .use(markdownItSup)
 .use(markdownItAbbr);
 
+/* Fetch and sort blog posts */
 const fetchMarkdownFile = async (fileUrl) => {
   console.log('Fetching markdown file from:', fileUrl);
   try {
@@ -64,53 +65,47 @@ const fetchMarkdownFile = async (fileUrl) => {
   }
 };
 
+
 export const fetchAndSortBlogPosts = async () => {
   try {
-    const files = require.context('../../public/blog', true, /\.md$/);
-    let posts = await Promise.all(files.keys().map(async file => {
-      const markdownText = await fetchMarkdownFile(`/blog/${file}`);
+    const response = await fetch('/api/blogPosts');
+    if (!response.ok) {
+      throw new Error('Failed to fetch blog posts');
+    }
+    let posts = await response.json();
+
+    // Hämta metadata och sortera inläggen efter datum
+    posts = await Promise.all(posts.map(async post => {
+      const markdownText = await fetch(post.path).then(res => res.text());
       const { data } = matter(markdownText);
       
       // Extrahera slug från filnamnet
-      const slugParts = file.split('_').slice(1);
+      const [, ...slugParts] = post.file.split('_');
       const slug = slugParts.join('_').replace('.md', '');
       
-      // Försök att parsea datumet och logga eventuella problem
-      let date;
-      try {
-        date = new Date(data.date);
-        if (isNaN(date)) {
-          throw new Error(`Invalid date: ${data.date}`);
-        }
-      } catch (error) {
-        console.error('Error parsing date:', error);
-        date = new Date(); // fallback till dagens datum
-      }
-      
-      return {
-        file: file,
-        slug: slug,
-        date: date,
-        tags: data.tags || [],
+      return { 
+        ...post, 
+        date: new Date(data.date), 
+        tags: data.tags || [], 
         author: data.author,
         excerpt: data.excerpt,
         featuredImage: data.featuredImage,
+        slug: slug,
         status: data.status,
         readingTime: data.readingTime,
+        fileName: post.file // Inkludera filnamnet i inläggsdata
       };
     }));
-    
+
     // Sortera i fallande ordning efter datum
     posts.sort((a, b) => b.date - a.date);
 
-    console.log('Sorted posts:', posts);
     return posts;
   } catch (error) {
     console.error('Error fetching and sorting blog posts:', error);
     throw error;
   }
 };
-
 
 const Markdown = ({ file }) => {
   const [post, setPost] = useState({ data: {}, content: '' });
@@ -141,17 +136,14 @@ const Markdown = ({ file }) => {
           {post.data.title}
         </Link>
       </h1>
-
       <div className="metadata">
         <div className="readingTime">{post.data.readingTime}</div>
         <div className="author">{post.data.author}</div>
         <div> {new Date(post.data.date).toLocaleDateString()}</div>
       </div>
-
       <div dangerouslySetInnerHTML={{ __html: html }} />
       {post.data.excerpt && <p className="excerpt">{post.data.excerpt}</p>}
       {post.data.featuredImage && <img src={post.data.featuredImage} alt={post.data.title} />}
-
       <div className="tags">
         {(post.data.tags || []).map((tag, index) => (
           <Link key={index} to={`/tags/${tag}`} style={{ textDecoration: 'none', color: 'inherit' }}>
